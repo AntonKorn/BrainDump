@@ -1,0 +1,55 @@
+﻿@page "/"
+
+@using MudBlazor
+
+<div class="dump-home">
+    <div class="share-text dump-home-item">
+        Please, share what is dragging you down. Write down the intrusive or unpleasant thoughts that stop you from concentrating.
+    </div>
+
+    <div class="fully-anoanimous dump-home-item" style="font-weight: 700;">This is fully anonymous and no data is sent to the server.</div>
+
+    <div class="dump-text dump-home-item">
+        @if (!_dumpingProgress.HasValue)
+        {
+            <MudTextField T="string"
+                          Lines="10" Variant="Variant.Outlined"
+            @bind-Text="@_dumpText" />
+        }
+        else
+        {
+            @if (!_showHypingWords)
+            {
+                <div class="dumping-in-progress @(_dumpingSucceeded ? "disintegrate" : string.Empty)" style="background-color: rgba(255, 0, 0, @_damageBackgroundOpacity)">
+                    @_dumpText
+                </div>
+            }
+
+            @if (_showHypingWords)
+            {
+                @* Todo: generate by microsoft onnx neural network *@
+                <div class="dumping-in-progress">
+                    You will manage to get through it, I believe in you! Try to concentrate on your current work now.
+                </div>
+            }
+        }
+
+        <div class="dump-home-item">
+            @if (!_dumpingProgress.HasValue || _dumpingProgress.Value < 100)
+            {
+                <MudButton Variant="Variant.Filled" OnClick="Dump">
+                    Dump, clear my mind @if (_dumpingProgress.HasValue)
+                    {
+                        @(_dumpingProgress.Value.ToString() + "%")
+                    }
+                </MudButton>
+            }
+            else
+            {
+                <MudButton Variant="Variant.Filled" Disabled="!_canRestart" OnClick="Restart">
+                    There is something else to share
+                </MudButton>
+            }
+        </div>
+    </div>
+</div>

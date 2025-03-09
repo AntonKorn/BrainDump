@@ -1,0 +1,20 @@
+﻿@using MudBlazor
+
+@inherits LayoutComponentBase
+
+<MudThemeProvider/>
+<MudPopoverProvider/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+<MudLayout>
+    <MudAppBar>
+        Release your anxiety
+    </MudAppBar>
+
+    <MudMainContent>
+        <div class="main-content">
+            @Body
+        </div>
+    </MudMainContent>
+</MudLayout>
