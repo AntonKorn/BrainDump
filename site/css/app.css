@@ -1,0 +1,37 @@
+.disintegrate {
+    position: relative;
+    animation: disintegrate 2s forwards;
+}
+
+@keyframes disintegrate {
+    0% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        clip-path: polygon(0 0, 50% 50%, 100% 0, 50% 50%, 100% 100%, 50% 50%, 0% 100%, 50% 50%);
+        opacity: 0.5;
+        transform: scale(0.8);
+    }
+
+    100% {
+        clip-path: polygon(0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0);
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+.dumping-in-progress {
+    min-height: 227px;
+    padding: 5px;
+}
+
+.dump-home {
+    font-size: 20px;
+}
+
+.dump-home-item {
+    padding-top: 30px;
+}
