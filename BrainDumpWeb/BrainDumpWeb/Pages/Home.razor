@@ -9,44 +9,48 @@
 
     <div class="fully-anoanimous dump-home-item" style="font-weight: 700;">This is fully anonymous and no data is sent to the server.</div>
 
+    @if (State == Enums.DumpState.ConvertingToCanvas
+        || State == Enums.DumpState.ShowingCanvas)
+    {
+        <div class="dumping-in-progress" style="display: @(State != Enums.DumpState.ShowingCanvas ? "none" : string.Empty)">
+            <canvas id="tear-canvas"></canvas>
+        </div>
+    }
+
     <div class="dump-text dump-home-item">
-        @if (!_dumpingProgress.HasValue)
+        @if (State == Enums.DumpState.PromptingText)
         {
             <MudTextField T="string"
                           Lines="10" Variant="Variant.Outlined"
             @bind-Text="@_dumpText" />
         }
-        else
-        {
-            @if (!_showHypingWords)
-            {
-                <div class="dumping-in-progress @(_dumpingSucceeded ? "disintegrate" : string.Empty)" style="background-color: rgba(255, 0, 0, @_damageBackgroundOpacity)">
-                    @_dumpText
-                </div>
-            }
 
-            @if (_showHypingWords)
-            {
-                @* Todo: generate by microsoft onnx neural network *@
-                <div class="dumping-in-progress">
-                    You will manage to get through it, I believe in you! Try to concentrate on your current work now.
-                </div>
-            }
+        @if (State == Enums.DumpState.ConvertingToCanvas)
+        {
+            <div id="rich-text-container" class="dumping-in-progress">
+                @_dumpText
+            </div>
+        }
+
+        @if (State == Enums.DumpState.TearedDown)
+        {
+            @* Todo: generate by microsoft onnx neural network *@
+            <div class="dumping-in-progress">
+                You will manage to get through it, I believe in you! Try to concentrate on your current work now.
+            </div>
         }
 
         <div class="dump-home-item">
-            @if (!_dumpingProgress.HasValue || _dumpingProgress.Value < 100)
+            @if (State == Enums.DumpState.PromptingText)
             {
                 <MudButton Variant="Variant.Filled" OnClick="Dump">
-                    Dump, clear my mind @if (_dumpingProgress.HasValue)
-                    {
-                        @(_dumpingProgress.Value.ToString() + "%")
-                    }
+                    Dump, clear my mind
                 </MudButton>
             }
-            else
+
+            @if (State == Enums.DumpState.TearedDown || State == Enums.DumpState.ShowingCanvas)
             {
-                <MudButton Variant="Variant.Filled" Disabled="!_canRestart" OnClick="Restart">
+                <MudButton Variant="Variant.Filled" Disabled="State != Enums.DumpState.TearedDown" OnClick="Restart">
                     There is something else to share
                 </MudButton>
             }
