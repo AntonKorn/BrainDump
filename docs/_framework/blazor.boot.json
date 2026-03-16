@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "BrainDumpWeb",
   "resources": {
-    "hash": "sha256-ny7uPdSLIhFWOa++fZakT5wkwcAphmYaz3ZTGDAbnwA=",
+    "hash": "sha256-Y4bf4gqf8eHWCsJbOP/V4qGX4XVnEQOLuUKDIYD+glw=",
     "jsModuleNative": {
       "dotnet.native.8.0.8.ndj1f1tnlz.js": "sha256-juC5sA7gHTLXFEhAKgdM2/RavswpwCtDfjYGsAz2FXg="
     },
@@ -17,7 +17,7 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "BrainDumpWeb.wasm": "sha256-kpCEa0T/g7bgFtFlujFuQmCzTG+2S4RUd94q61+6Zqk=",
+      "BrainDumpWeb.wasm": "sha256-DCrJSMR8+fUlo5ns7q1/GIvrorwYXf2a2Jd8ONAc5Dc=",
       "Microsoft.AspNetCore.Components.Forms.wasm": "sha256-89iuHISD/XnYUxI+leQKE1lYtKRCq7cCNs46WPyRmOY=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-YHvTTngMXDl2lJvDXOoTJpORA+54n/YHkbmRtJxYgq0=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-bdbyl8K7gMBBVBz7AFwTMQPlxpYSOQeQFUd4gFTqPbg=",
@@ -50,10 +50,10 @@
       "System.Net.Http.wasm": "sha256-i+zTMbmdvjevXKGSt6mOk7PvPLLBKZTHM4l/jhVPUJw=",
       "System.Net.Primitives.wasm": "sha256-lhJICDICus6Y3eImdBY4QOxHHt0AKXAlLKgGG16oo34=",
       "System.ObjectModel.wasm": "sha256-DRBo9NpOZgLKvUOKH4nM+fUfyhIKHrXpK4fxhpMLS+A=",
-      "System.Private.CoreLib.wasm": "sha256-b7xedh9w1EuEAvP0Ks6HEnC9oqM3MhIgv9JL4hvio5k=",
+      "System.Private.CoreLib.wasm": "sha256-tBR4qGi3u0sodHag4Q51QXnzY8ltMhwptNvspe9Lvs4=",
       "System.Private.Uri.wasm": "sha256-cPZXJG/e4xBlVz6yElukncsGHuzjbd4dru8YieOvobI=",
       "System.Runtime.InteropServices.JavaScript.wasm": "sha256-axgwq/HmUZ9ac8hGCXLwlExQsFnu3rH6uakC50cgATc=",
-      "System.Runtime.wasm": "sha256-UP6yz5HK8WpvUPoIl81/Uisr5tVTlgHdJgd/uNw5CWQ=",
+      "System.Runtime.wasm": "sha256-rGXOpKAURIJSgZOupjJeGpQ8Njrp004J2ZZyEJV7/jU=",
       "System.Text.Encodings.Web.wasm": "sha256-hvL1Sp38Sb9Pf0P2X3TSMaVAgkSIFhOOfYTuLaUbkvs=",
       "System.Text.Json.wasm": "sha256-QshrSdQC3ntD4LbAg538nZ9HAFxa2M+yCPe6FGelORk=",
       "System.Text.RegularExpressions.wasm": "sha256-AGCHR2O4bYHc3GD8CG4j0fYfXC5qk10+690klv/gXig=",
