@@ -2,6 +2,10 @@
     window.latestDotNetRef = ref;
 }
 
+window.isTextMovedIntoDiv = function () {
+    return !!document.getElementById('rich-text-container');
+}
+
 window.convertRichTextToImage = async function () {
     const container = document.getElementById('rich-text-container');
     if (!container) return '';
@@ -65,19 +69,23 @@ function setupTearing(canvas, originalImage) {
     const squareSize = 100;
     const width = canvas.width;
     const height = canvas.height;
-    const cols = Math.ceil(width / squareSize);
-    const rows = Math.ceil(height / squareSize);
+    const cols = Math.floor(width / squareSize);
+    const rows = Math.floor(height / squareSize);
 
     // Store cell info (bounds + torn flag)
     const cells = [];
     const cellsAoa = [];
     for (let row = 0; row < rows; row++) {
+        const isLastRow = row == rows - 1;
+
         cellsAoa.push([]);
         for (let col = 0; col < cols; col++) {
+            const isLastCol = col == cols - 1;
+
             const left = col * squareSize;
             const top = row * squareSize;
-            const right = Math.min(left + squareSize, width);
-            const bottom = Math.min(top + squareSize, height);
+            const right = !isLastCol ? Math.min(left + squareSize, width) : width;
+            const bottom = !isLastRow ? Math.min(top + squareSize, height) : height;
             const cellWidth = right - left;
             const cellHeight = bottom - top;
             if (cellWidth <= 0 || cellHeight <= 0) continue;

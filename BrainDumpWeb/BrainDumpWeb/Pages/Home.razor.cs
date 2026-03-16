@@ -42,8 +42,7 @@ namespace BrainDumpWeb.Pages
             if (firstRender)
             {
                 _module = await JS
-                    .InvokeAsync<IJSObjectReference>("import", $"./Pages/Home.razor.js?v={_jsVersion}")
-                    .ConfigureAwait(false);
+                    .InvokeAsync<IJSObjectReference>("import", $"./Pages/Home.razor.js?v={_jsVersion}");
 
                 dotNetRef = DotNetObjectReference.Create(this);
                 await JS.InvokeVoidAsync("updateDotnetRef", dotNetRef);
@@ -64,7 +63,7 @@ namespace BrainDumpWeb.Pages
 
             await InvokeAsync(StateHasChanged);
 
-            await Task.Delay(100);
+            await ActiveWaitTextAppear();
 
             var imageDataUrl = await JS.InvokeAsync<string>("window.convertRichTextToImage");
 
@@ -73,6 +72,15 @@ namespace BrainDumpWeb.Pages
             State = DumpState.ShowingCanvas;
 
             await InvokeAsync(StateHasChanged);
+        }
+
+        private async Task ActiveWaitTextAppear()
+        {
+            do
+            {
+                await Task.Delay(100);
+            }
+            while (!await JS.InvokeAsync<bool>("window.isTextMovedIntoDiv"));
         }
     }
 }

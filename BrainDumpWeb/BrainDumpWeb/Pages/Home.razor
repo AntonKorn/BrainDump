@@ -9,10 +9,15 @@
 
     <div class="fully-anoanimous dump-home-item" style="font-weight: 700;">This is fully anonymous and no data is sent to the server.</div>
 
+    @if (State == Enums.DumpState.ShowingCanvas)
+    {
+        <div class="dump-home-item" style="font-weight: 700;">Tear text below!</div>
+    }
+
     @if (State == Enums.DumpState.ConvertingToCanvas
         || State == Enums.DumpState.ShowingCanvas)
     {
-        <div class="dumping-in-progress" style="display: @(State != Enums.DumpState.ShowingCanvas ? "none" : string.Empty)">
+        <div class="tearing" style="display: @(State != Enums.DumpState.ShowingCanvas ? "none" : string.Empty)">
             <canvas id="tear-canvas"></canvas>
         </div>
     }
@@ -27,8 +32,14 @@
 
         @if (State == Enums.DumpState.ConvertingToCanvas)
         {
-            <div id="rich-text-container" class="dumping-in-progress">
-                @_dumpText
+            <div style="position: relative" class="converting-container">
+                <div id="rich-text-container" class="converting">
+                    @_dumpText
+                </div>
+
+                <div class="loading-image-contianer">
+                    <img class="loading-image" src="Loading_icon.gif" />
+                </div>
             </div>
         }
 

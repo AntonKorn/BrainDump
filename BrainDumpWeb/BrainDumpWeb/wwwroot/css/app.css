@@ -23,9 +23,17 @@
     }
 }
 
-.dumping-in-progress {
+.tearing {
     min-height: 227px;
-    padding: 5px;
+    padding: 10px;
+}
+
+.converting {
+    min-height: 227px;
+}
+
+.converting-container {
+    padding: 10px;
 }
 
 .dump-home {
@@ -34,4 +42,24 @@
 
 .dump-home-item {
     padding-top: 30px;
+}
+
+.loading-image {
+    width: 150px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+}
+
+.loading-image-contianer {
+    position: absolute;
+    background-color: #fff;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    right: 100%;
+    bottom: 100%;
+    display: flex;
+    justify-content: center;
 }
