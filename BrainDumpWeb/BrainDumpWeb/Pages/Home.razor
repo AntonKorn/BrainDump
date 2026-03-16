@@ -11,7 +11,7 @@
 
     @if (State == Enums.DumpState.ShowingCanvas)
     {
-        <div class="dump-home-item" style="font-weight: 700;">Tear text below!</div>
+        <div class="dump-home-item" style="font-weight: 700;">Tear gray rectangle!</div>
     }
 
     @if (State == Enums.DumpState.ConvertingToCanvas
@@ -34,7 +34,9 @@
         {
             <div style="position: relative" class="converting-container">
                 <div id="rich-text-container" class="converting">
-                    @_dumpText
+                    <div class="rich-text">
+                        @_dumpText
+                    </div>
                 </div>
 
                 <div class="loading-image-contianer">

@@ -30,6 +30,11 @@
 
 .converting {
     min-height: 227px;
+    background-color: #F5F5F5;
+}
+
+.rich-text {
+    padding: 2px;
 }
 
 .converting-container {

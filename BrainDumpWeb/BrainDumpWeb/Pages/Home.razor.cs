@@ -6,7 +6,7 @@ namespace BrainDumpWeb.Pages
 {
     public partial class Home
     {
-        private readonly string _jsVersion = "1";
+        private readonly string _jsVersion = "2";
 
         private IJSObjectReference? _module;
 
